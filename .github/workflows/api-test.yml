@@ -1,4 +1,4 @@
-name: ShareIt API Tests
+name: Smart Home Tech Tests
 
 on:
   pull_request:
