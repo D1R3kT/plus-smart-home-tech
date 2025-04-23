@@ -24,10 +24,10 @@ public class ScenarioAddedBuilder extends BaseHubBuilder {
                 .setHubId(hubEvent.getHubId())
                 .setTimestamp(mapTimestampToInstant(hubEvent))
                 .setPayload(new ScenarioAddedEventAvro(scenarioAddedEvent.getName(),
-                        mapToConditionTypeAvro(scenarioAddedEvent.getConditionList()),
-                        mapToDeviceActionAvro(scenarioAddedEvent.getActionList())))
+                        mapToConditionTypeAvro(scenarioAddedEvent.getConditionsList()),
+                        mapToDeviceActionAvro(scenarioAddedEvent.getActionsList())))
                 .build();
-    }           
+    }
 
     @Override
     public HubEventProto.PayloadCase getMessageType() {

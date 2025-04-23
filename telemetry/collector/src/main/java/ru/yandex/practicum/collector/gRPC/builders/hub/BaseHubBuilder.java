@@ -1,10 +1,9 @@
 package ru.yandex.practicum.collector.gRPC.builders.hub;
 
-import io.swagger.v3.oas.models.security.SecurityScheme;
 import lombok.RequiredArgsConstructor;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
+
 import ru.yandex.practicum.collector.gRPC.producer.KafkaEventProducer;
 import ru.yandex.practicum.grpc.telemetry.event.HubEventProto;
 import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
@@ -24,8 +23,8 @@ public abstract class BaseHubBuilder implements HubEventBuilder {
     @Override
     public void builder(HubEventProto event) {
         var contract = toAvro(event);
-        log.info("Sending the hub event {}", contract);
-        producer.send(toAvro(event), event.getHubId(),mapTimestampToInstant(event), topic);
+        log.info("Отправляем событие хаба {}", contract);
+        producer.send(toAvro(event), event.getHubId(), mapTimestampToInstant(event), topic);
     }
 
     public Instant mapTimestampToInstant(HubEventProto event) {

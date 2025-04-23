@@ -15,7 +15,9 @@
     <modules>
         <module>serialization</module>
         <module>collector</module>
-   <!--     <module>hubrouter</module> -->
+        <module>aggregator</module>
+        <module>analyzer</module>
+        <module>hub-router-client</module>
     </modules>
 
 </project>
