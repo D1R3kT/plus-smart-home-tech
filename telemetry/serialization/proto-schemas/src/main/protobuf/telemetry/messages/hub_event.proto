@@ -61,6 +61,7 @@ enum DeviceTypeProto {
   SWITCH_SENSOR = 4;
 }
 
+
 enum ActionTypeProto {
   ACTIVATE = 0;
   DEACTIVATE = 1;
