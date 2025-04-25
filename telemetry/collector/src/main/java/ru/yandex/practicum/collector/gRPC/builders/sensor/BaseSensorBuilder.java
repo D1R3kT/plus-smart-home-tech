@@ -1,7 +1,6 @@
 package ru.yandex.practicum.collector.gRPC.builders.sensor;
 
 
-import com.google.j2objc.annotations.ObjectiveCName;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,12 +17,13 @@ public abstract class BaseSensorBuilder implements SensorEventBuilder {
     private final KafkaEventProducer producer;
 
     @Value("${topic.telemetry-sensors}")
+
     private String topic;
 
     @Override
     public void builder(SensorEventProto event) {
         var contract = toAvro(event);
-        log.info("Sending the sensor event {}", contract);
+        log.info("Отправляем событие сенсора {}", contract);
         producer.send(contract, event.getHubId(), mapTimestampToInstant(event), topic);
     }
 

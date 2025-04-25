@@ -21,7 +21,6 @@ message SensorEventProto {
 }
 
 message MotionSensorProto {
-
   int32 link_quality = 1;
   bool motion = 2;
   int32 voltage = 3;
@@ -45,11 +44,9 @@ message ClimateSensorProto {
 
 message SwitchSensorProto {
   bool state = 1;
-
 }
 
 message CollectorResponse {
   google.protobuf.Timestamp timestamp = 1;
-
 
 }

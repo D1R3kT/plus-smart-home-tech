@@ -27,7 +27,7 @@ public class ScenarioAddedBuilder extends BaseHubBuilder {
                         mapToConditionTypeAvro(scenarioAddedEvent.getConditionsList()),
                         mapToDeviceActionAvro(scenarioAddedEvent.getActionsList())))
                 .build();
-    }           
+    }
 
     @Override
     public HubEventProto.PayloadCase getMessageType() {

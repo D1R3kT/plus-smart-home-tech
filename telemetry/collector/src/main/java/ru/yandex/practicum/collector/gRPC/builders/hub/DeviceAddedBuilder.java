@@ -1,6 +1,6 @@
 package ru.yandex.practicum.collector.gRPC.builders.hub;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import ru.yandex.practicum.collector.gRPC.producer.KafkaEventProducer;
 import ru.yandex.practicum.grpc.telemetry.event.DeviceAddedEventProto;
 import ru.yandex.practicum.grpc.telemetry.event.DeviceTypeProto;
@@ -9,7 +9,7 @@ import ru.yandex.practicum.kafka.telemetry.event.DeviceAddedEventAvro;
 import ru.yandex.practicum.kafka.telemetry.event.DeviceTypeAvro;
 import ru.yandex.practicum.kafka.telemetry.event.HubEventAvro;
 
-
+@Component
 public class DeviceAddedBuilder extends BaseHubBuilder {
     public DeviceAddedBuilder(KafkaEventProducer producer) {
         super(producer);
