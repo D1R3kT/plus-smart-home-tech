@@ -28,8 +28,9 @@ public class HubRouterClient {
     public void sendAction(Action action) {
         DeviceActionRequest deviceActionRequest = buildActionRequest(action);
         hubRouterClient.handleDeviceAction(deviceActionRequest);
-        log.info("Действие {} отправлено в hub-router", deviceActionRequest);
+
     }
+
 
     private DeviceActionRequest buildActionRequest(Action action) {
         return DeviceActionRequest.newBuilder()
