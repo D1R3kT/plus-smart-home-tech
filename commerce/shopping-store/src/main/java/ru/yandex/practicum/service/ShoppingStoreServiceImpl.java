@@ -23,7 +23,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
+@Transactional(readOnly = true)
 public class ShoppingStoreServiceImpl implements ShoppingStoreService {
 
     private final ShoppingStoreRepository shoppingStoreRepository;
