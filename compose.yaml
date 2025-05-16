@@ -11,6 +11,56 @@ services:
       - POSTGRES_USER=username
       - POSTGRES_DB=scenario-db
 
+  store-db:
+    image: postgres:16.1
+    container_name: store-db
+    ports:
+      - "6432:5432"
+    environment:
+      - POSTGRES_PASSWORD=store
+      - POSTGRES_USER=store
+      - POSTGRES_DB=store-db
+
+  cart-db:
+    image: postgres:16.1
+    container_name: cart-db
+    ports:
+      - "7432:5432"
+    environment:
+      - POSTGRES_PASSWORD=cart
+      - POSTGRES_USER=cart
+      - POSTGRES_DB=cart-db
+
+
+  warehouse-db:
+    image: postgres:16.1
+    container_name: warehouse-db
+    ports:
+      - "8432:5432"
+    environment:
+      - POSTGRES_PASSWORD=warehouse
+      - POSTGRES_USER=warehouse
+      - POSTGRES_DB=warehouse-db
+
+  #  analyzer:
+  #    build: telemetry/analyzer
+  #    container_name: analyzer
+  #    networks:
+  #      - net
+  #    environment:
+  #      spring__kafka__producer__bootstrap-servers: kafka:9092
+  #      spring__datasource__url: jdbc:postgresql://db:5432/scenario-db
+
+  #  collector:
+  #    build: telemetry/collector
+  #    container_name: collector
+  #    ports:
+  #      - "59091:59091"
+  #    networks:
+  #      - net
+  #    environment:
+  #      spring__kafka__producer__bootstrap-servers: kafka:9092
+
   kafka:
     image: confluentinc/confluent-local:7.4.3
     hostname: kafka
@@ -20,6 +70,8 @@ services:
       - "9101:9101" # JMX
       - "29092:29092"
       - "8082:8082"
+    #    networks:
+    #      - net
     restart: unless-stopped
     environment:
       KAFKA_NODE_ID: 1
@@ -35,6 +87,8 @@ services:
   kafka-init-topics:
     image: confluentinc/confluent-local:7.4.3
     container_name: kafka-init-topics
+    #    networks:
+    #      - net
     depends_on:
       - kafka
     command: "bash -c \
@@ -48,3 +102,7 @@ services:
                              --partitions 1 --replication-factor 1 --if-not-exists \
                              --bootstrap-server kafka:29092'"
     init: true
+
+#networks:
+#  net:
+#    driver: bridge
