@@ -21,5 +21,5 @@ public interface ShoppingCartService {
 
     ShoppingCartDto changeProductQuantity(String username, ChangeProductQuantityRequest requestDto);
 
-    BookedProductsDto bookingProducts(String username);
+    BookedProductsDto bookingProductsForUser(String username);
 }
