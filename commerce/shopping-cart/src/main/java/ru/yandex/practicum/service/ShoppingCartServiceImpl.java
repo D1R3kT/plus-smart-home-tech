@@ -19,8 +19,9 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
+@Transactional
 public class ShoppingCartServiceImpl implements ShoppingCartService {
+
     private final ShoppingCartRepository shoppingCartRepository;
     private final ShoppingCartMapper shoppingCartMapper;
     private final WarehouseClient warehouseClient;

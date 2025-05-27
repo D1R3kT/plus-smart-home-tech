@@ -13,7 +13,7 @@ import ru.yandex.practicum.exception.NoSpecifiedProductInWarehouseException;
 import ru.yandex.practicum.exception.ProductInShoppingCartLowQuantityInWarehouseException;
 import ru.yandex.practicum.exception.ProductNotFoundInWarehouseException;
 import ru.yandex.practicum.exception.SpecifiedProductAlreadyInWarehouseException;
-import ru.yandex.practicum.feign.ShopingStoreClient;
+import ru.yandex.practicum.feign.ShoppingStoreClient;
 import ru.yandex.practicum.mapper.WarehouseMapper;
 import ru.yandex.practicum.model.Warehouse;
 import ru.yandex.practicum.repository.WarehouseRepository;
@@ -34,7 +34,7 @@ public class WarehouseServiceImpl implements WarehouseService {
 
     private final WarehouseRepository warehouseRepository;
     private final WarehouseMapper warehouseMapper;
-    private final ShopingStoreClient shopingStoreClient;
+    private final ShoppingStoreClient shoppingStoreClient;
 
     @Override
     public void newProductInWarehouse(NewProductInWarehouseRequest newProductInWarehouseRequest) {
@@ -117,6 +117,6 @@ public class WarehouseServiceImpl implements WarehouseService {
         } else {
             quantityState = QuantityState.MANY;
         }
-        shopingStoreClient.setProductQuantityState(productId, quantityState);
+        shoppingStoreClient.setProductQuantityState(productId, quantityState);
     }
 }
