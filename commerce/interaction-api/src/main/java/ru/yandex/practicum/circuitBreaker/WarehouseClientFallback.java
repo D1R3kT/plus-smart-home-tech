@@ -1,8 +1,6 @@
 package ru.yandex.practicum.circuitBreaker;
 
-import jakarta.validation.Valid;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestBody;
 import ru.yandex.practicum.dto.AddressDto;
 import ru.yandex.practicum.dto.BookedProductsDto;
 import ru.yandex.practicum.dto.ShoppingCartDto;
