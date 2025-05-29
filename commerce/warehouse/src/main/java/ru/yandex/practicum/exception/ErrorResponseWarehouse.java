@@ -14,6 +14,7 @@ import java.util.Arrays;
 @Slf4j
 @RestControllerAdvice
 public class ErrorResponseWarehouse {
+
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorResponse handleCommonException(RuntimeException e) {

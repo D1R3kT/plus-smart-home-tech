@@ -8,5 +8,6 @@ import ru.yandex.practicum.request.NewProductInWarehouseRequest;
 
 @Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface WarehouseMapper {
+
     Warehouse toWarehouse(NewProductInWarehouseRequest newProductInWarehouseRequest);
 }
